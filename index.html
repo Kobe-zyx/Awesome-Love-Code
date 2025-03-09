@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kobe_zyx</title>
-  <!-- 内嵌CSS样式 -->
   <style>
     /* 重置部分 */
     * {
@@ -93,6 +92,11 @@
       padding: 15px;
       border-radius: 5px;
       text-align: center;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    #portfolio .grid-item:hover {
+      transform: translateY(-5px);
     }
     #portfolio .grid-item img {
       width: 100%;
@@ -103,6 +107,53 @@
       margin-top: 10px;
       font-size: 18px;
       color: #2EB398;
+    }
+    #portfolio .grid-item p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+    #portfolio .grid-item button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #2EB398;
+      border: none;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    /* 模态框 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 600px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      color: #000;
     }
     /* 博客 */
     #blog .post-list {
@@ -125,6 +176,17 @@
     #blog .post-list span {
       font-size: 12px;
       color: #999;
+    }
+    #blog .load-more {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #2EB398;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
     }
     /* 联系我 */
     #contact form {
@@ -169,7 +231,7 @@
       text-align: center;
       padding: 10px 0;
     }
-    /* 响应式菜单 */
+    /* 响应式 */
     .menu-toggle {
       display: none;
       background: #2EB398;
@@ -227,7 +289,7 @@
       <div class="profile">
         <img src="images/profile.jpg" alt="个人头像">
         <div class="bio">
-          <p>大家好，我叫Kobe_zyx，是一名热爱前端开发与设计的程序员。西安辅轮中学在读，。</p>
+          <p>大家好，我叫Kobe_zyx，是一名热爱前端开发与设计的程序员。西安辅轮中学在读。</p>
           <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。“折腾”之余，我喜欢篮球、学习和阅读，这些爱好为我的创作提供了源源不断的灵感。</p>
           <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！</p>
         </div>
@@ -238,25 +300,29 @@
     <section id="portfolio">
       <h2>作品展示</h2>
       <div class="grid">
-        <div class="grid-item">
-          <img src="K.png" alt="作品1">
+        <div class="grid-item" data-detail="这是作品1的详细介绍，包含设计思路、实现过程及使用技术。">
+          <img src="images/portfolio1.jpg" alt="作品1">
           <h3>作品名称1</h3>
-          <p>介绍作品的设计思路与实现技术。</p>
+          <p>创意设计与响应式开发。</p>
+          <button class="view-details">查看详情</button>
         </div>
-        <div class="grid-item">
-          <img src="K.png" alt="作品2">
+        <div class="grid-item" data-detail="作品2详细描述：本作品注重用户体验，使用现代化设计风格，兼顾美观与实用。">
+          <img src="images/portfolio2.jpg" alt="作品2">
           <h3>作品名称2</h3>
-          <p>介绍作品的创意构想和实现过程。</p>
+          <p>现代化界面设计。</p>
+          <button class="view-details">查看详情</button>
         </div>
-        <div class="grid-item">
-          <img src="K.png" alt="作品3">
+        <div class="grid-item" data-detail="作品3详细描述：此项目采用最新Web技术，确保跨平台兼容性和快速加载速度。">
+          <img src="images/portfolio3.jpg" alt="作品3">
           <h3>作品名称3</h3>
-          <p>作品采用了响应式设计，兼容多设备浏览。</p>
+          <p>高性能Web应用。</p>
+          <button class="view-details">查看详情</button>
         </div>
-        <div class="grid-item">
-          <img src="K.png" alt="作品4">
+        <div class="grid-item" data-detail="作品4详细描述：展示了一款融合艺术与技术的作品，设计独特，功能丰富。">
+          <img src="images/portfolio4.jpg" alt="作品4">
           <h3>作品名称4</h3>
-          <p>展示了一款实用性与美观兼备的项目。</p>
+          <p>艺术与技术的结合。</p>
+          <button class="view-details">查看详情</button>
         </div>
       </div>
     </section>
@@ -280,7 +346,19 @@
           <span>2025-01-15</span>
           <p>分享个人在职业发展中的心得体会以及如何在快速变化的技术领域中保持竞争力。</p>
         </li>
+        <!-- 隐藏的更多博客文章 -->
+        <li class="extra-post" style="display:none;">
+          <h3>如何构建高性能网站</h3>
+          <span>2024-12-10</span>
+          <p>探讨了网站性能优化的各种策略和实际案例，提升用户体验和搜索引擎排名。</p>
+        </li>
+        <li class="extra-post" style="display:none;">
+          <h3>响应式设计的最佳实践</h3>
+          <span>2024-11-05</span>
+          <p>分享了响应式网页设计中的常见问题和解决方案，帮助开发者构建更灵活的界面。</p>
+        </li>
       </ul>
+      <button id="loadMore" class="load-more">加载更多</button>
     </section>
     
     <!-- 联系我 -->
@@ -299,25 +377,71 @@
         <button type="submit">发送留言</button>
       </form>
       <div class="contact-info">
-        <p>邮箱：<a href="mailto:example@example.com">kobezyuxuan@gmail.com</a></p>
+        <p>邮箱：<a href="mailto:kobezyuxuan@gmail.com">example@example.com</a></p>
         <p>电话：+86 123-4567-8901</p>
-        <p>社交媒体：<a href="#">微博</a> | <a href="#">微信</a> | <a href="#">GitHub</a></p>
+        <p>社交媒体：<a href="https://github.com/Kobe-zyx">GitHub</a></p>
       </div>
     </section>
   </main>
+  
+  <!-- 模态框（作品详情） -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h3 id="modalTitle">作品详情</h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
   
   <!-- 页脚 -->
   <footer>
     <p>&copy; 2025 我的个人网站</p>
   </footer>
   
-  <!-- JavaScript部分 -->
   <script>
-    // 简单的响应式菜单切换
+    // 响应式菜单切换
     const menuToggle = document.querySelector('.menu-toggle');
     const navList = document.getElementById('nav-list');
     menuToggle.addEventListener('click', () => {
       navList.classList.toggle('active');
+    });
+    
+    // Portfolio 模态框逻辑
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeModal = document.querySelector('.modal-close');
+    const detailButtons = document.querySelectorAll('.view-details');
+    
+    detailButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const gridItem = e.target.closest('.grid-item');
+        const title = gridItem.querySelector('h3').innerText;
+        const detail = gridItem.getAttribute('data-detail');
+        modalTitle.innerText = title;
+        modalDescription.innerText = detail;
+        modal.style.display = 'block';
+      });
+    });
+    
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Blog "加载更多" 功能
+    const loadMoreBtn = document.getElementById('loadMore');
+    loadMoreBtn.addEventListener('click', () => {
+      const extraPosts = document.querySelectorAll('.extra-post');
+      extraPosts.forEach(post => {
+        post.style.display = 'list-item';
+      });
+      loadMoreBtn.style.display = 'none';
     });
   </script>
 </body>
