@@ -1,164 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Kobe_zyx</title>
-    <meta name="language" content="zh-CN">
-    <meta name="title" content="Kobe_zyx">
-    <meta name="github" content="https://github.com/Kobe-zyx/Awesome-Love-Code">
-    <meta name="describe" content="欢迎回来! ">
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
-    <link rel="icon" href="K.png">
-    <link rel="stylesheet" href=".2">
-    <link rel="stylesheet" href=".1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kobe_zyx</title>
+  <!-- 内嵌CSS样式 -->
+  <style>
+    /* 重置部分 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "微软雅黑", sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #444;
+    }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 0;
+      display: block;
+    }
+    nav ul li a:hover {
+      color: #2EB398;
+    }
+    /* 主体部分 */
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    section h2 {
+      margin-bottom: 10px;
+      color: #2EB398;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    /* 响应式菜单 */
+    .menu-toggle {
+      display: none;
+      background: #2EB398;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        display: none;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-    <!-- ALL -->
-    <div id="Indexbox">
-
-        <!-- 顶部菜单 -->
-        <div class="menu" id="menu">
-            <img src="./favicon.ico" alt="favicon">
-            <ul id="menuUL">
-                <li>
-                    <a href="https://kobe-zyx.github.io/""_blank">首页(L)</a>
-                </li>
-                <li>
-                    <a href="https://kobe-zyx.github.io/" target="_blank">文章(V)</a>
-                </li>
-                <li>
-                    <a href="https://kobe-zyx.github.io/" target="_blank">归档(E)</a>
-                </li>
-                <li>
-                    <a href="https://kobe-zyx.github.io/" target="_blank">留言(J)</a>
-                </li>
-                <li>
-                    <a href="https://kobe-zyx.github.io/" target="_blank">关于(O)</a>
-                </li>
-            </ul>
-            <p>Kobe_zyx.html</p>
-        </div>
-
-        <!-- 左侧菜单按钮 -->
-        <div class="leftBar">
-            <div class="leftBar-ButtomMe" onclick="MeClick(true)"></div>
-            <div class="leftBar-ButtomMenu" id="leftBar-ButtomMenu" onclick="MenuClick(true)">
-                <div class="div1"></div>
-                <div class="div2"></div>
-                <div class="div3"></div>
-            </div>
-            <div class="leftBar-ButtomPages" id="menuPages" onclick="PagesClick(true)"></div>
-        </div>
-
-        <!-- 左侧拉出菜单 我 -->
-        <div class="leftBar-Me" id="leftBar-Me">
-            <div class="leftBar-ButtomClose" onclick="MeClick(false)">
-                <div class="div1"></div>
-                <div class="div2"></div>
-            </div>
-            <div class="img">
-                <img src="头像.png" alt="头像">
-            </div>
-            <div class="introduction">
-                <h1>Kobe_zyx</h1>
-                <p>西安辅轮中学在读。</p>
-                <p>The second place means you are the first loser</p>
-            </div>
-            <div class="connect">
-                <a href="https://kobe-zyx.github.io/">关于</a>
-                <a href="https://kobe-zyx.github.io/">留言</a>
-            </div>
-        </div>
-
-        <!-- 页面版块1 -->
-        <div class="pages" id="pages">
-
-            <!-- 页面选项卡 -->
-            <div class="pages-title">
-                <div class="pages-title-option pages-title-option-click" id="pages-title-option1"
-                    onclick="pages_title_option_click(1, true)">
-                    <img src="stuck_out_tongue.png" alt="stuck_out_tongue">
-                    <p>hello world.md</p>
-                </div>
-                <div class="pages-title-option" id="pages-title-option2" onclick="pages_title_option_click(2, true)">
-                    <img src="stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes">
-                    <p>Kobe_zyx.md</p>
-                </div>
-                <div class="pages-title-option" id="pages-title-option3" onclick="pages_title_option_click(3, true)">
-                    <img src="stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                    <p>I am Kobe_zyx.md</p>
-                </div>
-            </div>
-
-            <!-- 页面 -->
-            <div class="pages-text pages-text-show" id="pages-text1">
-                <div class="pages-text-box">
-                    <h1>你好，我是Kobe_zyx<br />热爱编程，篮球，AI。</h1>
-                    <img class="pages-text-box-img" align="center" width="700px"
-                        src="champion.png" />
-                    <p>&emsp;&emsp;故事的开头总是这样 适逢其会 猝不及防 故事的结局总是这样 花开两朵 天各一方。</p>
-                    <p>&emsp;&emsp;你好，这里是Kobe_zyx，14岁，是学生，热爱计算机互联网事业，对有趣的世界充满好奇，Kobe_zyx在努力...</p>
-                    <p>&emsp;&emsp;我们的目标是星辰大海！！！</p>
-                </div>
-            </div>
-
-            <div class="pages-text" id="pages-text2">
-                <div class="pages-text-box">
-                    <h1>test2</h1>
-                </div>
-            </div>
-
-            <div class="pages-text" id="pages-text3">
-                <div class="pages-text-box">
-                    <h1>test3</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 页面版块2 -->
-    <div class="pages pages2" id="pages2">
-
-        <!-- 页面选项卡 -->
-        <div class="pages-title pages-title2">
-            <div class="pages-title-option pages-title-option-click">
-                <img src="icecream.png" alt="icecream">
-                <p>My Life.md</p>
-            </div>
-        </div>
-
-        <!-- 页面 -->
-        <div class="pages-text pages-text-show">
-            <div class="pages-text-box pages-text-box2">
-                <h1>成果展示</h1>
-                <p>2025-03-08</p>
-                <p>Let's GO !!!</p>
-                <div class="pages-text-box-img">
-                    <img src="1.jpg">
-                    <h6>Beautiful Picture</h6>
-                </div>
-                <a href="https://github.com/Kobe-zyx/Awesome-Love-Code" class="text-a" target="_blank">More?</a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- 底部版权 -->
-    <div class="footer" id="footer">
-        <p class="left">&copy; 2025 | BY <a href="https://kobe-zyx.github.io/" target="_blank">Kobe_zyx</a></p>
-        <p class="right"><a href="https://kobe-zyx.github.io/" target="_blank">I am Kobe_zyx</a></p>
-    </div>
-
-    </div>
-
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="./js/N0ts.js"></script>
-    <script src="./js/viewer.min.js"></script>
-    <script src="./js//lovetime.js"></script>
-    <script>resize();</script>
+  <!-- 页头 -->
+  <header>
+    <h1>欢迎来到我的个人网站</h1>
+    <p>这里展示我的个人信息、作品和博客</p>
+  </header>
+  
+  <!-- 导航菜单 -->
+  <nav>
+    <button class="menu-toggle">菜单</button>
+    <ul id="nav-list">
+      <li><a href="#about">关于我</a></li>
+      <li><a href="#portfolio">作品展示</a></li>
+      <li><a href="#blog">博客</a></li>
+      <li><a href="#contact">联系我</a></li>
+    </ul>
+  </nav>
+  
+  <!-- 主体内容 -->
+  <main>
+    <!-- 关于我 -->
+    <section id="about">
+      <h2>关于我</h2>
+      <p>这里可以写一些个人简介、技能介绍和成长经历等内容。</p>
+    </section>
+    
+    <!-- 作品展示 -->
+    <section id="portfolio">
+      <h2>作品展示</h2>
+      <p>这里可以放置你的项目、设计作品或者其他相关链接和图片。</p>
+    </section>
+    
+    <!-- 博客 -->
+    <section id="blog">
+      <h2>博客</h2>
+      <p>在这里分享你的心得、技术文章或者其他感兴趣的内容。</p>
+    </section>
+    
+    <!-- 联系我 -->
+    <section id="contact">
+      <h2>联系我</h2>
+      <p>你可以通过邮箱 <a href="kobezyuxuan@gmail.com">example@example.com</a> 或社交媒体联系我。</p>
+    </section>
+  </main>
+  
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2025 我的个人网站</p>
+  </footer>
+  
+  <!-- JavaScript部分 -->
+  <script>
+    // 简单的响应式菜单切换
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.getElementById('nav-list');
+    
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  </script>
 </body>
-
 </html>
