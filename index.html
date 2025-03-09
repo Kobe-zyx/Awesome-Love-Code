@@ -55,11 +55,113 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     section {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
     section h2 {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       color: #2EB398;
+      border-bottom: 2px solid #2EB398;
+      padding-bottom: 10px;
+    }
+    /* 关于我 */
+    #about .profile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #about .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+    #about .bio {
+      flex: 1;
+    }
+    #about .bio p {
+      margin-bottom: 10px;
+    }
+    /* 作品展示 */
+    #portfolio .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    #portfolio .grid-item {
+      background: #fafafa;
+      border: 1px solid #eee;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    #portfolio .grid-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    #portfolio .grid-item h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #2EB398;
+    }
+    /* 博客 */
+    #blog .post-list {
+      list-style: none;
+    }
+    #blog .post-list li {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    #blog .post-list h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: #2EB398;
+    }
+    #blog .post-list p {
+      font-size: 14px;
+      color: #666;
+    }
+    #blog .post-list span {
+      font-size: 12px;
+      color: #999;
+    }
+    /* 联系我 */
+    #contact form {
+      display: flex;
+      flex-direction: column;
+    }
+    #contact form label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    #contact form input,
+    #contact form textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 14px;
+      width: 100%;
+    }
+    #contact form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    #contact form button {
+      padding: 10px;
+      background: #2EB398;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #contact .contact-info {
+      margin-top: 20px;
+    }
+    #contact .contact-info p {
+      margin-bottom: 5px;
     }
     footer {
       background: #333;
@@ -89,6 +191,13 @@
       .menu-toggle {
         display: block;
       }
+      #about .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+      #about .profile img {
+        margin: 0 0 20px 0;
+      }
     }
   </style>
 </head>
@@ -96,7 +205,7 @@
   <!-- 页头 -->
   <header>
     <h1>欢迎来到我的个人网站</h1>
-    <p>这里展示我的个人信息、作品和博客</p>
+    <p>分享我的故事、作品和思考</p>
   </header>
   
   <!-- 导航菜单 -->
@@ -115,31 +224,85 @@
     <!-- 关于我 -->
     <section id="about">
       <h2>关于我</h2>
-      <p>你好，我是Kobe_zyx，热爱编程，篮球，AI。
-        故事的开头总是这样 适逢其会 猝不及防 故事的结局总是这样 花开两朵 天各一方。
-
-  你好，这里是Kobe_zyx，14岁，是学生，热爱计算机互联网事业，对有趣的世界充满好奇，Kobe_zyx在努力...
-
-  我们的目标是星辰大海！！！
-      </p>
+      <div class="profile">
+        <img src="images/profile.jpg" alt="个人头像">
+        <div class="bio">
+          <p>大家好，我叫张三，是一名热爱前端开发与设计的程序员。毕业于某知名大学，拥有多年的Web开发经验，擅长使用HTML、CSS和JavaScript构建高质量的网站。</p>
+          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。工作之余，我喜欢摄影、旅行和阅读，这些爱好为我的创作提供了源源不断的灵感。</p>
+          <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！</p>
+        </div>
+      </div>
     </section>
     
     <!-- 作品展示 -->
     <section id="portfolio">
       <h2>作品展示</h2>
-      <p>https://github.com/Kobe-zyx ，https://x.com/kobe_zyx24 </p>
+      <div class="grid">
+        <div class="grid-item">
+          <img src="images/portfolio1.jpg" alt="作品1">
+          <h3>作品名称1</h3>
+          <p>介绍作品的设计思路与实现技术。</p>
+        </div>
+        <div class="grid-item">
+          <img src="images/portfolio2.jpg" alt="作品2">
+          <h3>作品名称2</h3>
+          <p>介绍作品的创意构想和实现过程。</p>
+        </div>
+        <div class="grid-item">
+          <img src="images/portfolio3.jpg" alt="作品3">
+          <h3>作品名称3</h3>
+          <p>作品采用了响应式设计，兼容多设备浏览。</p>
+        </div>
+        <div class="grid-item">
+          <img src="images/portfolio4.jpg" alt="作品4">
+          <h3>作品名称4</h3>
+          <p>展示了一款实用性与美观兼备的项目。</p>
+        </div>
+      </div>
     </section>
     
     <!-- 博客 -->
     <section id="blog">
       <h2>博客</h2>
-      <p>https://kobe-zyx.github.io/</p>
+      <ul class="post-list">
+        <li>
+          <h3>前端开发新技巧</h3>
+          <span>2025-03-09</span>
+          <p>本文分享了使用CSS3和JavaScript实现响应式布局和动态效果的实用技巧，适合初学者快速上手。</p>
+        </li>
+        <li>
+          <h3>深入理解JavaScript异步编程</h3>
+          <span>2025-02-20</span>
+          <p>介绍了Promise和async/await的原理及在项目中的应用，帮助你写出更高效的异步代码。</p>
+        </li>
+        <li>
+          <h3>职业成长与技术探索</h3>
+          <span>2025-01-15</span>
+          <p>分享个人在职业发展中的心得体会以及如何在快速变化的技术领域中保持竞争力。</p>
+        </li>
+      </ul>
     </section>
     
     <!-- 联系我 -->
     <section id="contact">
       <h2>联系我</h2>
-      <p>你可以通过邮箱 <a href="example@example.com">http://kobezyuxuan@gmail.com</a> 或社交媒体联系我。</p>
+      <form action="#" method="post">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+        
+        <label for="email">邮箱：</label>
+        <input type="email" id="email" name="email" placeholder="请输入您的邮箱" required>
+        
+        <label for="message">留言：</label>
+        <textarea id="message" name="message" placeholder="请留下您的意见或建议" required></textarea>
+        
+        <button type="submit">发送留言</button>
+      </form>
+      <div class="contact-info">
+        <p>邮箱：<a href="mailto:example@example.com">example@example.com</a></p>
+        <p>电话：+86 123-4567-8901</p>
+        <p>社交媒体：<a href="#">微博</a> | <a href="#">微信</a> | <a href="#">GitHub</a></p>
+      </div>
     </section>
   </main>
   
@@ -153,7 +316,6 @@
     // 简单的响应式菜单切换
     const menuToggle = document.querySelector('.menu-toggle');
     const navList = document.getElementById('nav-list');
-    
     menuToggle.addEventListener('click', () => {
       navList.classList.toggle('active');
     });
