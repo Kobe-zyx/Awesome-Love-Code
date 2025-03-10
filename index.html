@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kobe_zyx</title>
+  <title>我的个人网站</title>
+  <!-- 平滑滚动 -->
   <style>
-    /* 重置部分 */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* 重置 */
     * {
       margin: 0;
       padding: 0;
@@ -44,7 +48,7 @@
     nav ul li a:hover {
       color: #2EB398;
     }
-    /* 主体部分 */
+    /* 主体 */
     main {
       max-width: 1000px;
       margin: 20px auto;
@@ -55,6 +59,13 @@
     }
     section {
       margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     section h2 {
       margin-bottom: 20px;
@@ -231,7 +242,22 @@
       text-align: center;
       padding: 10px 0;
     }
-    /* 响应式 */
+    /* 返回顶部按钮 */
+    #backToTop {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #2EB398;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 18px;
+      z-index: 200;
+    }
+    /* 响应式菜单 */
     .menu-toggle {
       display: none;
       background: #2EB398;
@@ -289,8 +315,8 @@
       <div class="profile">
         <img src="images/profile.jpg" alt="个人头像">
         <div class="bio">
-          <p>大家好，我叫Kobe_zyx，是一名热爱前端开发与设计的程序员。西安辅轮中学在读。</p>
-          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。“折腾”之余，我喜欢篮球、学习和阅读，这些爱好为我的创作提供了源源不断的灵感。</p>
+          <p>大家好，我叫张三，是一名热爱前端开发与设计的程序员。毕业于某知名大学，拥有多年的Web开发经验，擅长使用HTML、CSS和JavaScript构建高质量的网站。</p>
+          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。工作之余，我喜欢摄影、旅行和阅读，这些爱好为我的创作提供了源源不断的灵感。</p>
           <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！</p>
         </div>
       </div>
@@ -346,7 +372,7 @@
           <span>2025-01-15</span>
           <p>分享个人在职业发展中的心得体会以及如何在快速变化的技术领域中保持竞争力。</p>
         </li>
-        <!-- 隐藏的更多博客文章 -->
+        <!-- 隐藏的更多文章 -->
         <li class="extra-post" style="display:none;">
           <h3>如何构建高性能网站</h3>
           <span>2024-12-10</span>
@@ -364,7 +390,7 @@
     <!-- 联系我 -->
     <section id="contact">
       <h2>联系我</h2>
-      <form action="#" method="post">
+      <form id="contactForm" action="#" method="post">
         <label for="name">姓名：</label>
         <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
         
@@ -377,9 +403,9 @@
         <button type="submit">发送留言</button>
       </form>
       <div class="contact-info">
-        <p>邮箱：<a href="mailto:kobezyuxuan@gmail.com">example@example.com</a></p>
+        <p>邮箱：<a href="mailto:example@example.com">example@example.com</a></p>
         <p>电话：+86 123-4567-8901</p>
-        <p>社交媒体：<a href="https://github.com/Kobe-zyx">GitHub</a></p>
+        <p>社交媒体：<a href="#">微博</a> | <a href="#">微信</a> | <a href="#">GitHub</a></p>
       </div>
     </section>
   </main>
@@ -392,6 +418,9 @@
       <p id="modalDescription"></p>
     </div>
   </div>
+  
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" title="返回顶部">&#8679;</button>
   
   <!-- 页脚 -->
   <footer>
@@ -406,7 +435,7 @@
       navList.classList.toggle('active');
     });
     
-    // Portfolio 模态框逻辑
+    // 作品展示模态框逻辑
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
@@ -434,7 +463,7 @@
       }
     });
     
-    // Blog "加载更多" 功能
+    // Blog 加载更多
     const loadMoreBtn = document.getElementById('loadMore');
     loadMoreBtn.addEventListener('click', () => {
       const extraPosts = document.querySelectorAll('.extra-post');
@@ -442,6 +471,45 @@
         post.style.display = 'list-item';
       });
       loadMoreBtn.style.display = 'none';
+    });
+    
+    // 返回顶部按钮
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (document.documentElement.scrollTop > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // 表单提交简单验证（示例）
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // 此处可添加更多验证逻辑
+      alert('留言已发送，感谢您的反馈！');
+      contactForm.reset();
+    });
+    
+    // 滚动进入动画效果（使用 Intersection Observer）
+    const sections = document.querySelectorAll('main section');
+    const observerOptions = {
+      threshold: 0.2
+    };
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    sections.forEach(section => {
+      sectionObserver.observe(section);
     });
   </script>
 </body>
