@@ -48,7 +48,7 @@
     nav ul li a:hover {
       color: #2EB398;
     }
-    /* 主体 */
+    /* 主体内容 */
     main {
       max-width: 1000px;
       margin: 20px auto;
@@ -188,6 +188,14 @@
       font-size: 12px;
       color: #999;
     }
+    #blog .read-more {
+      color: #2EB398;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    #blog .read-more:hover {
+      text-decoration: underline;
+    }
     #blog .load-more {
       display: block;
       margin: 20px auto;
@@ -198,6 +206,29 @@
       border-radius: 3px;
       cursor: pointer;
       font-size: 16px;
+    }
+    /* 相关文章 */
+    #relatedPosts {
+      margin-top: 20px;
+    }
+    #relatedPosts h3 {
+      font-size: 18px;
+      color: #2EB398;
+      margin-bottom: 10px;
+    }
+    #relatedPosts ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #relatedPosts ul li {
+      margin-bottom: 8px;
+    }
+    #relatedPosts ul li a {
+      color: #2EB398;
+      text-decoration: none;
+    }
+    #relatedPosts ul li a:hover {
+      text-decoration: underline;
     }
     /* 联系我 */
     #contact form {
@@ -315,9 +346,9 @@
       <div class="profile">
         <img src="images/profile.jpg" alt="个人头像">
         <div class="bio">
-          <p>大家好，我叫张三，是一名热爱前端开发与设计的程序员。毕业于某知名大学，拥有多年的Web开发经验，擅长使用HTML、CSS和JavaScript构建高质量的网站。</p>
-          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。工作之余，我喜欢摄影、旅行和阅读，这些爱好为我的创作提供了源源不断的灵感。</p>
-          <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！</p>
+          <p>大家好，我叫张三，是一名热爱前端开发与设计的程序员。毕业于某知名大学，拥有多年的Web开发经验，擅长使用HTML、CSS和JavaScript构建高质量的网站。（[Poptin](https://www.poptin.com/blog/zh-CN/9-tips-make-blog-posts-engaging/)）</p>
+          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。工作之余，我喜欢摄影、旅行和阅读，这些爱好为我的创作提供了源源不断的灵感。（[Ranktracker](https://www.ranktracker.com/zh/blog/tips-optimizing/)）</p>
+          <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！（[Strikingly](https://cn.strikingly.com/blog/posts/7-best-blog-design-examples-for-inspiration/)）</p>
         </div>
       </div>
     </section>
@@ -326,25 +357,25 @@
     <section id="portfolio">
       <h2>作品展示</h2>
       <div class="grid">
-        <div class="grid-item" data-detail="这是作品1的详细介绍，包含设计思路、实现过程及使用技术。">
+        <div class="grid-item" data-detail="这是作品1的详细介绍，包含设计思路、实现过程及使用技术。（[知乎专栏](https://zhuanlan.zhihu.com/p/514474513)）">
           <img src="images/portfolio1.jpg" alt="作品1">
           <h3>作品名称1</h3>
           <p>创意设计与响应式开发。</p>
           <button class="view-details">查看详情</button>
         </div>
-        <div class="grid-item" data-detail="作品2详细描述：本作品注重用户体验，使用现代化设计风格，兼顾美观与实用。">
+        <div class="grid-item" data-detail="作品2详细描述：本作品注重用户体验，使用现代化设计风格，兼顾美观与实用。（[wpzhanzhang.eastfu.com](https://wpzhanzhang.eastfu.com/blog-seo-tips-optimize-your-blog-posts-for-seo/)）">
           <img src="images/portfolio2.jpg" alt="作品2">
           <h3>作品名称2</h3>
           <p>现代化界面设计。</p>
           <button class="view-details">查看详情</button>
         </div>
-        <div class="grid-item" data-detail="作品3详细描述：此项目采用最新Web技术，确保跨平台兼容性和快速加载速度。">
+        <div class="grid-item" data-detail="作品3详细描述：此项目采用最新Web技术，确保跨平台兼容性和快速加载速度。（[heichat.net](https://heichat.net/zh-CN/blogs/zlNIHl92b3k/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%8F%90%E5%8D%87%E5%8D%9A%E5%AE%A2%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8E%92%E5%90%8D/)）">
           <img src="images/portfolio3.jpg" alt="作品3">
           <h3>作品名称3</h3>
           <p>高性能Web应用。</p>
           <button class="view-details">查看详情</button>
         </div>
-        <div class="grid-item" data-detail="作品4详细描述：展示了一款融合艺术与技术的作品，设计独特，功能丰富。">
+        <div class="grid-item" data-detail="作品4详细描述：展示了一款融合艺术与技术的作品，设计独特，功能丰富。（[GitHub](https://gsy00517.github.io/preface20191007202443/)）">
           <img src="images/portfolio4.jpg" alt="作品4">
           <h3>作品名称4</h3>
           <p>艺术与技术的结合。</p>
@@ -360,31 +391,45 @@
         <li>
           <h3>前端开发新技巧</h3>
           <span>2025-03-09</span>
-          <p>本文分享了使用CSS3和JavaScript实现响应式布局和动态效果的实用技巧，适合初学者快速上手。</p>
+          <p>本文分享了使用CSS3和JavaScript实现响应式布局和动态效果的实用技巧，适合初学者快速上手。（[Poptin](https://www.poptin.com/blog/zh-CN/9-tips-make-blog-posts-engaging/)）</p>
+          <a class="read-more" href="blog-post1.html">阅读全文 &raquo;</a>
         </li>
         <li>
           <h3>深入理解JavaScript异步编程</h3>
           <span>2025-02-20</span>
-          <p>介绍了Promise和async/await的原理及在项目中的应用，帮助你写出更高效的异步代码。</p>
+          <p>介绍了Promise和async/await的原理及在项目中的应用，帮助你写出更高效的异步代码。（[知乎专栏](https://zhuanlan.zhihu.com/p/514474513/)）</p>
+          <a class="read-more" href="blog-post2.html">阅读全文 &raquo;</a>
         </li>
         <li>
           <h3>职业成长与技术探索</h3>
           <span>2025-01-15</span>
-          <p>分享个人在职业发展中的心得体会以及如何在快速变化的技术领域中保持竞争力。</p>
+          <p>分享个人在职业发展中的心得体会以及如何在快速变化的技术领域中保持竞争力。（[Ranktracker](https://www.ranktracker.com/zh/blog/tips-optimizing/)）</p>
+          <a class="read-more" href="blog-post3.html">阅读全文 &raquo;</a>
         </li>
         <!-- 隐藏的更多文章 -->
         <li class="extra-post" style="display:none;">
           <h3>如何构建高性能网站</h3>
           <span>2024-12-10</span>
-          <p>探讨了网站性能优化的各种策略和实际案例，提升用户体验和搜索引擎排名。</p>
+          <p>探讨了网站性能优化的各种策略和实际案例，提升用户体验和搜索引擎排名。（[heichat.net](https://heichat.net/zh-CN/blogs/zlNIHl92b3k/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%8F%90%E5%8D%87%E5%8D%9A%E5%AE%A2%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8E%92%E5%90%8D/)）</p>
+          <a class="read-more" href="blog-post4.html">阅读全文 &raquo;</a>
         </li>
         <li class="extra-post" style="display:none;">
           <h3>响应式设计的最佳实践</h3>
           <span>2024-11-05</span>
-          <p>分享了响应式网页设计中的常见问题和解决方案，帮助开发者构建更灵活的界面。</p>
+          <p>分享了响应式网页设计中的常见问题和解决方案，帮助开发者构建更灵活的界面。（[wpzhanzhang.eastfu.com](https://wpzhanzhang.eastfu.com/blog-seo-tips-optimize-your-blog-posts-for-seo/)）</p>
+          <a class="read-more" href="blog-post5.html">阅读全文 &raquo;</a>
         </li>
       </ul>
       <button id="loadMore" class="load-more">加载更多</button>
+      <!-- 相关文章模块 -->
+      <div id="relatedPosts">
+        <h3>相关文章</h3>
+        <ul>
+          <li><a href="blog-post6.html">利用现代化工具优化前端性能</a></li>
+          <li><a href="blog-post7.html">提高网站用户体验的5个关键步骤</a></li>
+          <li><a href="blog-post8.html">前端开发者必备的设计工具介绍</a></li>
+        </ul>
+      </div>
     </section>
     
     <!-- 联系我 -->
@@ -463,7 +508,7 @@
       }
     });
     
-    // Blog 加载更多
+    // Blog "加载更多" 功能
     const loadMoreBtn = document.getElementById('loadMore');
     loadMoreBtn.addEventListener('click', () => {
       const extraPosts = document.querySelectorAll('.extra-post');
@@ -473,7 +518,7 @@
       loadMoreBtn.style.display = 'none';
     });
     
-    // 返回顶部按钮
+    // 返回顶部按钮逻辑
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (document.documentElement.scrollTop > 300) {
