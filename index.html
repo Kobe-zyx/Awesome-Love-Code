@@ -20,12 +20,27 @@
       line-height: 1.6;
       background: #f4f4f4;
       color: #333;
+      transition: background 0.3s, color 0.3s;
     }
     header {
       background: #333;
       color: #fff;
       padding: 20px;
       text-align: center;
+      position: relative;
+    }
+    /* 切换模式按钮 */
+    #modeToggle {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: #2EB398;
+      border: none;
+      padding: 8px 12px;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
     }
     nav {
       background: #444;
@@ -318,6 +333,32 @@
         margin: 0 0 20px 0;
       }
     }
+    /* 暗色模式样式 */
+    .dark-mode {
+      background: #222;
+      color: #ddd;
+    }
+    .dark-mode header {
+      background: #111;
+      color: #ddd;
+    }
+    .dark-mode nav {
+      background: #333;
+    }
+    .dark-mode nav ul li a {
+      color: #ddd;
+    }
+    .dark-mode main {
+      background: #333;
+      box-shadow: 0 0 5px rgba(255,255,255,0.1);
+    }
+    .dark-mode footer {
+      background: #111;
+      color: #ccc;
+    }
+    .dark-mode #modeToggle {
+      background: #555;
+    }
   </style>
 </head>
 <body>
@@ -325,6 +366,7 @@
   <header>
     <h1>欢迎来到我的个人网站</h1>
     <p>分享我的故事、作品和思考</p>
+    <button id="modeToggle">切换模式</button>
   </header>
   
   <!-- 导航菜单 -->
@@ -346,9 +388,9 @@
       <div class="profile">
         <img src="头像.png" alt="个人头像">
         <div class="bio">
-          <p>大家好，我叫Kobe_zyx，是一名热爱前端开发与设计的程序员。西安辅轮中学在读。
-          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。“折腾”之余，我喜欢篮球、学习和阅读，这些爱好为我的创作提供了源源不断的灵感。
-          <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！
+          <p>大家好，我叫Kobe_zyx，是一名热爱前端开发与设计的程序员。西安辅轮中学在读。</p>
+          <p>我热爱生活，也热衷于不断学习新技术，追求代码与设计的完美结合。“折腾”之余，我喜欢篮球、学习和阅读，这些爱好为我的创作提供了源源不断的灵感。</p>
+          <p>欢迎来到我的个人网站，希望能与大家分享我的技术心得和生活感悟！</p>
         </div>
       </div>
     </section>
@@ -392,31 +434,31 @@
           <h3>前端开发新技巧</h3>
           <span>2025-03-09</span>
           <p>本文分享了使用CSS3和JavaScript实现响应式布局和动态效果的实用技巧，适合初学者快速上手。
-          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a>
+          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a></p>
         </li>
         <li>
           <h3>深入理解JavaScript异步编程</h3>
           <span>2025-02-20</span>
           <p>介绍了Promise和async/await的原理及在项目中的应用，帮助你写出更高效的异步代码。
-          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a>
+          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a></p>
         </li>
         <li>
           <h3>职业成长与技术探索</h3>
           <span>2025-01-15</span>
           <p>分享个人在职业发展中的心得体会以及如何在快速变化的技术领域中保持竞争力。
-          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a>
+          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a></p>
         </li>
         <!-- 隐藏的更多文章 -->
         <li class="extra-post" style="display:none;">
           <h3>如何构建高性能网站</h3>
           <span>2024-12-10</span>
           <p>探讨了网站性能优化的各种策略和实际案例，提升用户体验和搜索引擎排名。
-          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a>
+          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a></p>
         </li>
         <li class="extra-post" style="display:none;">
           <h3>响应式设计的最佳实践</h3>
           <span>2024-11-05</span>
-          <p>分享了响应式网页设计中的常见问题和解决方案，帮助开发者构建更灵活的界面。
+          <p>分享了响应式网页设计中的常见问题和解决方案，帮助开发者构建更灵活的界面。</p>
         </li>
       </ul>
       <button id="loadMore" class="load-more">加载更多</button>
@@ -554,6 +596,25 @@
     }, observerOptions);
     sections.forEach(section => {
       sectionObserver.observe(section);
+    });
+    
+    // 黑夜/白天模式切换逻辑
+    const modeToggle = document.getElementById('modeToggle');
+    const currentMode = localStorage.getItem('mode') || 'light';
+    
+    // 初始化模式
+    if(currentMode === 'dark') {
+      document.body.classList.add('dark-mode');
+      modeToggle.innerText = '切换白天模式';
+    } else {
+      modeToggle.innerText = '切换黑夜模式';
+    }
+    
+    modeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const newMode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('mode', newMode);
+      modeToggle.innerText = newMode === 'dark' ? '切换白天模式' : '切换黑夜模式';
     });
   </script>
 </body>
