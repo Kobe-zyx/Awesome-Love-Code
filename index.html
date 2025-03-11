@@ -22,7 +22,9 @@
       transition: background 0.3s, color 0.3s;
     }
     header {
-      background: linear-gradient(135deg, #2c3e50, #34495e);
+      /* 使用背景图片替换原有的深色背景 */
+      background: url('4.jpg') no-repeat center center;
+      background-size: cover;
       color: #ecf0f1;
       padding: 20px;
       text-align: center;
@@ -148,38 +150,6 @@
       border-radius: 3px;
       cursor: pointer;
       font-size: 14px;
-    }
-    /* 模态框 */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background: #fff;
-      margin: 10% auto;
-      padding: 20px;
-      border-radius: 5px;
-      max-width: 600px;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #aaa;
-      cursor: pointer;
-    }
-    .modal-close:hover {
-      color: #000;
     }
     /* 博客 */
     #blog .post-list {
@@ -339,7 +309,8 @@
       color: #ddd;
     }
     .dark-mode header {
-      background: linear-gradient(135deg, #1c2833, #212f3d);
+      background: url('header-image.jpg') no-repeat center center;
+      background-size: cover;
       color: #ddd;
     }
     .dark-mode nav {
@@ -401,7 +372,7 @@
     <section id="portfolio">
       <h2>作品展示</h2>
       <div class="grid">
-        <div class="grid-item" data-detail="这是作品1的详细介绍，包含设计思路、实现过程及使用技术。（[codemao官网]( https://shequ.codemao.cn/work/181104959/)）">
+        <div class="grid-item" data-detail="这是作品1的详细介绍，包含设计思路、实现过程及使用技术。（[codemao官网](https://shequ.codemao.cn/work/181104959/)）">
           <img src="K.png" alt="作品1">      
           <h3>kitten计算机系统模拟项目</h3>
           <p>基于codemao研发的个人系统UI界面，虽未开源，但极具参考价值</p> 
@@ -498,15 +469,6 @@
     </section>
   </main>
   
-  <!-- 模态框（作品详情） -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="modal-close">&times;</span>
-      <h3 id="modalTitle">作品详情</h3>
-      <p id="modalDescription"></p>
-    </div>
-  </div>
-  
   <!-- 返回顶部按钮 -->
   <button id="backToTop" title="返回顶部">&#8679;</button>
   
@@ -523,32 +485,18 @@
       navList.classList.toggle('active');
     });
     
-    // 作品展示模态框逻辑
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const closeModal = document.querySelector('.modal-close');
+    // 作品展示按钮点击逻辑：点击“查看详情”跳转到对应链接
     const detailButtons = document.querySelectorAll('.view-details');
-    
     detailButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         const gridItem = e.target.closest('.grid-item');
-        const title = gridItem.querySelector('h3').innerText;
         const detail = gridItem.getAttribute('data-detail');
-        modalTitle.innerText = title;
-        modalDescription.innerText = detail;
-        modal.style.display = 'block';
+        // 正则匹配Markdown格式中的链接
+        const match = detail.match(/\((https?:\/\/[^\s)]+)\)/);
+        if (match && match[1]) {
+          window.location.href = match[1];
+        }
       });
-    });
-    
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-    
-    window.addEventListener('click', (e) => {
-      if (e.target == modal) {
-        modal.style.display = 'none';
-      }
     });
     
     // 博客 "加载更多" 功能
