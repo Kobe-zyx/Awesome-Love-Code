@@ -4,27 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kobe_zyx个人网站</title>
-  <!-- 平滑滚动 -->
   <style>
+    /* 新主题：现代极简风格 */
     html {
       scroll-behavior: smooth;
     }
-    /* 重置 */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: "微软雅黑", sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background: #f4f4f4;
+      background: #f9f9f9;
       color: #333;
       transition: background 0.3s, color 0.3s;
     }
     header {
-      background: #333;
-      color: #fff;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #ecf0f1;
       padding: 20px;
       text-align: center;
       position: relative;
@@ -34,7 +33,7 @@
       position: absolute;
       right: 20px;
       top: 20px;
-      background: #2EB398;
+      background: #e74c3c;
       border: none;
       padding: 8px 12px;
       color: #fff;
@@ -43,7 +42,8 @@
       font-size: 14px;
     }
     nav {
-      background: #444;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     nav ul {
       display: flex;
@@ -55,22 +55,21 @@
       margin: 0 15px;
     }
     nav ul li a {
-      color: #fff;
+      color: #34495e;
       text-decoration: none;
       padding: 10px 0;
       display: block;
     }
     nav ul li a:hover {
-      color: #2EB398;
+      color: #e74c3c;
     }
-    /* 主体内容 */
     main {
       max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
     section {
       margin-bottom: 40px;
@@ -84,8 +83,8 @@
     }
     section h2 {
       margin-bottom: 20px;
-      color: #2EB398;
-      border-bottom: 2px solid #2EB398;
+      color: #e74c3c;
+      border-bottom: 2px solid #e74c3c;
       padding-bottom: 10px;
     }
     /* 关于我 */
@@ -99,6 +98,7 @@
       height: 150px;
       border-radius: 50%;
       margin-right: 20px;
+      border: 4px solid #e74c3c;
     }
     #about .bio {
       flex: 1;
@@ -114,7 +114,7 @@
     }
     #portfolio .grid-item {
       background: #fafafa;
-      border: 1px solid #eee;
+      border: 1px solid #ddd;
       padding: 15px;
       border-radius: 5px;
       text-align: center;
@@ -132,7 +132,7 @@
     #portfolio .grid-item h3 {
       margin-top: 10px;
       font-size: 18px;
-      color: #2EB398;
+      color: #2c3e50;
     }
     #portfolio .grid-item p {
       font-size: 14px;
@@ -142,7 +142,7 @@
     #portfolio .grid-item button {
       margin-top: 10px;
       padding: 8px 12px;
-      background: #2EB398;
+      background: #e74c3c;
       border: none;
       color: #fff;
       border-radius: 3px;
@@ -193,7 +193,7 @@
     #blog .post-list h3 {
       font-size: 20px;
       margin-bottom: 5px;
-      color: #2EB398;
+      color: #2c3e50;
     }
     #blog .post-list p {
       font-size: 14px;
@@ -204,7 +204,7 @@
       color: #999;
     }
     #blog .read-more {
-      color: #2EB398;
+      color: #e74c3c;
       text-decoration: none;
       font-size: 14px;
     }
@@ -215,7 +215,7 @@
       display: block;
       margin: 20px auto;
       padding: 10px 20px;
-      background: #2EB398;
+      background: #e74c3c;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -228,7 +228,7 @@
     }
     #relatedPosts h3 {
       font-size: 18px;
-      color: #2EB398;
+      color: #e74c3c;
       margin-bottom: 10px;
     }
     #relatedPosts ul {
@@ -239,7 +239,7 @@
       margin-bottom: 8px;
     }
     #relatedPosts ul li a {
-      color: #2EB398;
+      color: #2c3e50;
       text-decoration: none;
     }
     #relatedPosts ul li a:hover {
@@ -269,7 +269,7 @@
     }
     #contact form button {
       padding: 10px;
-      background: #2EB398;
+      background: #e74c3c;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -283,8 +283,8 @@
       margin-bottom: 5px;
     }
     footer {
-      background: #333;
-      color: #fff;
+      background: #34495e;
+      color: #ecf0f1;
       text-align: center;
       padding: 10px 0;
     }
@@ -293,7 +293,7 @@
       position: fixed;
       right: 20px;
       bottom: 20px;
-      background: #2EB398;
+      background: #e74c3c;
       color: #fff;
       padding: 10px 15px;
       border: none;
@@ -306,7 +306,7 @@
     /* 响应式菜单 */
     .menu-toggle {
       display: none;
-      background: #2EB398;
+      background: #e74c3c;
       color: #fff;
       border: none;
       padding: 10px 15px;
@@ -333,31 +333,33 @@
         margin: 0 0 20px 0;
       }
     }
-    /* 暗色模式样式 */
+    /* 暗色模式 */
     .dark-mode {
-      background: #222;
+      background: #1e1e1e;
       color: #ddd;
     }
     .dark-mode header {
-      background: #111;
+      background: linear-gradient(135deg, #1c2833, #212f3d);
       color: #ddd;
     }
     .dark-mode nav {
-      background: #333;
+      background: #2c3e50;
     }
     .dark-mode nav ul li a {
       color: #ddd;
     }
     .dark-mode main {
-      background: #333;
-      box-shadow: 0 0 5px rgba(255,255,255,0.1);
+      background: #2c3e50;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.1);
     }
     .dark-mode footer {
-      background: #111;
+      background: #1c2833;
       color: #ccc;
     }
-    .dark-mode #modeToggle {
-      background: #555;
+    .dark-mode #modeToggle,
+    .dark-mode .menu-toggle,
+    .dark-mode #backToTop {
+      background: #e74c3c;
     }
   </style>
 </head>
@@ -366,7 +368,7 @@
   <header>
     <h1>欢迎来到我的个人网站</h1>
     <p>分享我的故事、作品和思考</p>
-    <button id="modeToggle">切换模式</button>
+    <button id="modeToggle">切换黑夜模式</button>
   </header>
   
   <!-- 导航菜单 -->
@@ -462,7 +464,7 @@
         </li>
       </ul>
       <button id="loadMore" class="load-more">加载更多</button>
-      <!-- 相关文章模块 -->
+      <!-- 相关文章 -->
       <div id="relatedPosts">
         <h3>相关文章</h3>
         <ul>
@@ -549,7 +551,7 @@
       }
     });
     
-    // Blog "加载更多" 功能
+    // 博客 "加载更多" 功能
     const loadMoreBtn = document.getElementById('loadMore');
     loadMoreBtn.addEventListener('click', () => {
       const extraPosts = document.querySelectorAll('.extra-post');
@@ -572,20 +574,17 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // 表单提交简单验证（示例）
+    // 表单提交简单验证
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      // 此处可添加更多验证逻辑
       alert('留言已发送，感谢您的反馈！');
       contactForm.reset();
     });
     
-    // 滚动进入动画效果（使用 Intersection Observer）
+    // 滚动进入动画效果（Intersection Observer）
     const sections = document.querySelectorAll('main section');
-    const observerOptions = {
-      threshold: 0.2
-    };
+    const observerOptions = { threshold: 0.2 };
     const sectionObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
@@ -602,7 +601,6 @@
     const modeToggle = document.getElementById('modeToggle');
     const currentMode = localStorage.getItem('mode') || 'light';
     
-    // 初始化模式
     if(currentMode === 'dark') {
       document.body.classList.add('dark-mode');
       modeToggle.innerText = '切换白天模式';
