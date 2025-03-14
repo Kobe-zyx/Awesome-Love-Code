@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -21,10 +22,11 @@
       transition: background 0.3s, color 0.3s;
     }
     header {
-      /* 使用背景图片替换原有的深色背景 */
+      /* 设置背景图片 */
       background: url('4.jpg') no-repeat center center;
       background-size: cover;
-      height: 50vh;
+      /* 将header高度设置为视口高度的70%，使图片展示区域更大 */
+      height: 70vh;
       color: #ecf0f1;
       padding: 20px;
       text-align: center;
@@ -252,6 +254,32 @@
     #contact .contact-info p {
       margin-bottom: 5px;
     }
+    /* 每日一句名言区域 */
+    #daily-quote {
+      background: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    #daily-quote p {
+      font-size: 18px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    #daily-quote .quote-buttons button {
+      background: #e74c3c;
+      border: none;
+      color: #fff;
+      padding: 8px 12px;
+      margin: 0 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    /* 页脚 */
     footer {
       background: #34495e;
       color: #ecf0f1;
@@ -308,9 +336,8 @@
       background: #1e1e1e;
       color: #ddd;
     }
-    /* 在暗色模式下，确保header依然显示背景图片 */
     .dark-mode header {
-      background: url('4.jpg') no-repeat center center !important;
+      background: url('header-image.jpg') no-repeat center center !important;
       background-size: cover !important;
       color: #ddd;
     }
@@ -339,7 +366,7 @@
   <!-- 页头 -->
   <header>
     <h1>欢迎来到我的个人网站</h1>
-    <p>我的故事、作品和思考</p>
+    <p>分享我的故事、作品和思考</p>
     <button id="modeToggle">切换黑夜模式</button>
   </header>
   
@@ -379,7 +406,7 @@
           <p>基于codemao研发的个人系统UI界面，虽未开源，但极具参考价值</p> 
           <button class="view-details">查看详情</button> 
         </div>
-        <div class="grid-item" data-detail="作品2详细描述：本作品注重用户体验，使用现代化设计风格，兼顾美观与实用。（[个人博客](https://kobe-zyx.github.io/)）">
+        <div class="grid-item" data-detail="作品2详细描述：本作品注重用户体验，使用现代化设计风格，兼顾美观与实用。（[个人博客](https://kobe-zyx.github.io/2025/03/09/mp/)）">
           <img src="K.png" alt="作品2">
           <h3>个人博客</h3>
           <p>现代化界面设计，基于Github作者HUX BLOG制作，仍在改进...</p>
@@ -393,8 +420,8 @@
         </div>
         <div class="grid-item" data-detail="作品4详细描述：展示了这个网站的搭建源码，适合新手拷贝学习（[GitHub](https://github.com/Kobe-zyx/Awesome-Love-Code/)）">
           <img src="K.png" alt="作品4">
-          <h3>网站的搭建源码</h3>
-          <p>展示了这个网站的搭建源码，适合新手拷贝学习。</p>
+          <h3>作品名称4</h3>
+          <p>艺术与技术的结合。</p>
           <button class="view-details">查看详情</button>
         </div>
       </div>
@@ -405,10 +432,10 @@
       <h2>博客</h2>
       <ul class="post-list">
         <li>
-          <h3>获取Gemini API-key</h3>
-          <span>2025-03-12</span>
-          <p>本文分享了如何拥有Google Gemini API-key，为教程科普。
-          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/12/mp/">阅读全文 &raquo;</a></p>
+          <h3>前端开发新技巧</h3>
+          <span>2025-03-09</span>
+          <p>本文分享了使用CSS3和JavaScript实现响应式布局和动态效果的实用技巧，适合初学者快速上手。
+          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a></p>
         </li>
         <li>
           <h3>深入理解JavaScript异步编程</h3>
@@ -433,9 +460,6 @@
           <h3>响应式设计的最佳实践</h3>
           <span>2024-11-05</span>
           <p>分享了响应式网页设计中的常见问题和解决方案，帮助开发者构建更灵活的界面。</p>
-          <a class="read-more" href="https://kobe-zyx.github.io/2025/03/09/mp/">阅读全文 &raquo;</a></p>
-        </li>
-        <li class="extra-post" style="display:none;"> 
         </li>
       </ul>
       <button id="loadMore" class="load-more">加载更多</button>
@@ -472,6 +496,16 @@
       </div>
     </section>
   </main>
+  
+  <!-- 每日一句名言区域 -->
+  <section id="daily-quote">
+    <p id="quoteText">"不要等待机会，而要创造机会。"</p>
+    <div class="quote-buttons">
+      <button id="copyQuote">复制</button>
+      <button id="refreshQuote">刷新</button>
+      <button id="searchQuote">搜索</button>
+    </div>
+  </section>
   
   <!-- 返回顶部按钮 -->
   <button id="backToTop" title="返回顶部">&#8679;</button>
@@ -552,19 +586,58 @@
     // 黑夜/白天模式切换逻辑
     const modeToggle = document.getElementById('modeToggle');
     const currentMode = localStorage.getItem('mode') || 'light';
-    
     if(currentMode === 'dark') {
       document.body.classList.add('dark-mode');
       modeToggle.innerText = '切换白天模式';
     } else {
       modeToggle.innerText = '切换黑夜模式';
     }
-    
     modeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       const newMode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
       localStorage.setItem('mode', newMode);
       modeToggle.innerText = newMode === 'dark' ? '切换白天模式' : '切换黑夜模式';
+    });
+    
+    // 每日一句名言相关功能
+    const quotes = [
+      "不要等待机会，而要创造机会。",
+      "失败是成功之母。",
+      "每一天都是新的开始。",
+      "坚持就是胜利。",
+      "学习是进步的阶梯。"
+    ];
+    
+    function getRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      return quotes[randomIndex];
+    }
+    
+    function updateQuote() {
+      const quoteText = document.getElementById("quoteText");
+      quoteText.innerText = '"' + getRandomQuote() + '"';
+    }
+    
+    // 初始化每日一句
+    updateQuote();
+    
+    // 复制功能
+    document.getElementById("copyQuote").addEventListener("click", function() {
+      const quote = document.getElementById("quoteText").innerText;
+      navigator.clipboard.writeText(quote)
+        .then(() => { alert("名言已复制！"); })
+        .catch(err => { alert("复制失败，请手动复制。"); });
+    });
+    
+    // 刷新功能
+    document.getElementById("refreshQuote").addEventListener("click", function() {
+      updateQuote();
+    });
+    
+    // 搜索功能
+    document.getElementById("searchQuote").addEventListener("click", function() {
+      const quote = document.getElementById("quoteText").innerText;
+      window.open("https://www.google.com/search?q=" + encodeURIComponent(quote), "_blank");
     });
   </script>
 </body>
